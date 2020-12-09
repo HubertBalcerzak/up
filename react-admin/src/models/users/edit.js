@@ -81,9 +81,6 @@ export default (props) => (
           label='Default file lifetime in ms'
           validate={required()}
         />
-        <BooleanInput
-          source='permanentAllowed'
-        />
         <NumberInput
           source='maxPermanentFileSize'
           label='Max temporary file size in bytes'

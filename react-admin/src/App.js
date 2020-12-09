@@ -6,6 +6,7 @@ import dataProvider from './dataProvider'
 
 // import { FileList, FileEdit } from './models/files'
 import { UserList, UserEdit, UserCreate } from './models/users'
+import { ConfigList } from './models/config'
 
 const history = createBrowserHistory({ basename: '/admin' })
 
@@ -21,6 +22,10 @@ const App = () => (
       create={UserCreate}
       list={UserList}
       edit={UserEdit}
+    />
+    <Resource
+      name='config'
+      list={ConfigList}
     />
   </Admin>
 )
