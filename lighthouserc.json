@@ -1,0 +1,14 @@
+{
+  "ci": {
+    "assert": {
+      "preset": "lighthouse:recommended"
+    },
+    "collect": {
+      "staticDistDir": "./gatsby-app/public",
+      "startServerCommand": "cd gatsby-app && npm run serve"
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
