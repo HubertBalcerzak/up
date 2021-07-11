@@ -2,6 +2,6 @@
   "presets": [
     "next/babel"
   ],
-  "plugins": []
+  "plugins": ["@emotion"]
 }
 

@@ -9,6 +9,7 @@ const BackgroundBox = styled('div')`
   left: 10px;
   background: ${(props) => props.theme.colors.shark};
   z-index: -1;
+  opacity: 0.7;
 `
 
 export default BackgroundBox
