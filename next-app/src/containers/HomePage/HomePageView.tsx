@@ -16,15 +16,17 @@ import theme from '../../assets/theme'
 import { TypographyP } from '../../components/elements/Typography'
 import footerLinks from './footerLinks'
 import ExpandableBalloon from '../../components/elements/ExpandableBalloon'
+import UploadBoxes from '../UploadBoxes'
 
 interface IHomePageViewProps extends IHomePageProps, IHomePageStateProps {}
 
-const HomePageView = ({}: IHomePageViewProps) => (
+const HomePageView = (props: IHomePageViewProps) => (
   <HomePage>
     <Container>
       <Box>
         <Box.Content>
           <Box.Image src={image} alt='Simple landscape' />
+          {React.createElement(UploadBoxes[props.uploadBoxContent.currentBox]?.Component)}
         </Box.Content>
         <Box.TransparentBar>
           <AlignedDiv>

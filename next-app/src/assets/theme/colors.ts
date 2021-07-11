@@ -102,6 +102,7 @@ export type TColor =
   | 'upBackground'
   | 'mako'
   | 'shark'
+  | 'timberwolf'
 
 /**
  List of possible colors in your app.
@@ -112,7 +113,7 @@ const colors: {
   [index in TColor]: string
 } = {
   transparent: 'transparent',
-  upBase01: '#fff',
+  upBase01: '#ffffff',
   upBase02: '#f6f6f6',
   upBase03: '#ededed', // basic border
   upBase04: '#d7d7d7', // hovered borders
@@ -219,7 +220,8 @@ const colors: {
   // Project custom
   upBackground: '#1a1b1c',
   mako: '#434755',
-  shark: '#1F2229'
+  shark: '#1F2229',
+  timberwolf: '#DAD7D2'
 }
 
 export default colors

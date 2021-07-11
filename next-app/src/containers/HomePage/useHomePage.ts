@@ -1,9 +1,17 @@
-import { IHomePageProps } from '../../pages'
+import { useContext } from 'react'
 
-export interface IHomePageStateProps {}
+import {
+  IUploadBoxContentContext,
+  UploadBoxContentContext
+} from '../../providers/UploadBoxContentProvider'
 
-const useHomePage = ({}: IHomePageProps): IHomePageStateProps => {
-  return {}
+export interface IHomePageStateProps {
+  uploadBoxContent: IUploadBoxContentContext
+}
+
+const useHomePage = ({}: IHomePageStateProps): IHomePageStateProps => {
+  const uploadBoxContent = useContext(UploadBoxContentContext)
+  return { uploadBoxContent }
 }
 
 export default useHomePage
