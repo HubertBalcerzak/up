@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 const Container = styled('div')`
   width: ${(props) => props.theme.constants.containerSizes.xl};
+  min-height: 1px;
   margin: 0 auto;
 
   @media (max-width: ${(props) => props.theme.breakpoints.xl}) {

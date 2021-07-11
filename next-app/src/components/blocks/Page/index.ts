@@ -9,7 +9,7 @@ const Page = styled('div')`
 
   grid-template-columns: auto;
   grid-template-areas: 'content';
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr;
 
   @media (max-width: ${(props) => props.theme.breakpoints.md}) {
     grid-template-columns: 100%;

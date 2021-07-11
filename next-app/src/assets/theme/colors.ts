@@ -100,6 +100,8 @@ export type TColor =
   | 'upSupport21'
   | 'upSupport22'
   | 'upBackground'
+  | 'mako'
+  | 'shark'
 
 /**
  List of possible colors in your app.
@@ -215,7 +217,9 @@ const colors: {
   upSupport21: '#a0c5df',
   upSupport22: '#3c7ba8',
   // Project custom
-  upBackground: '#1a1b1c'
+  upBackground: '#1a1b1c',
+  mako: '#434755',
+  shark: '#1F2229'
 }
 
 export default colors
