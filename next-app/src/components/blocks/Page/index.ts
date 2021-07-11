@@ -1,31 +1,31 @@
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import Content from './Content'
-import Footer from './Footer'
 
 const Page = styled('div')`
   display: grid;
   min-height: 100vh;
   width: 100%;
 
-  background: ${props => props.theme.palette.background};
-
   grid-template-columns: auto;
-  grid-template-areas:
-    'content'
-    'footer';
-  grid-template-rows: 1fr auto;
+  grid-template-areas: 'content';
+  grid-template-rows: auto 1fr auto;
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.md}) {
     grid-template-columns: 100%;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    grid-template-rows: 1fr auto;
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+    grid-template-rows: 5px auto auto;
   }
 `
 
-Page.Content = Content
-Page.Footer = Footer
+type PageProps = typeof Page & {
+  Content: typeof Content
+}
 
-export default Page
+const PageBlock = Page as PageProps
+
+PageBlock.Content = Content
+
+export default PageBlock

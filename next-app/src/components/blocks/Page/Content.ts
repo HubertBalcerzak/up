@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const Content = styled('main')`
   position: relative;
@@ -6,9 +6,7 @@ const Content = styled('main')`
   min-height: 125px;
   z-index: 1;
 
-  background: ${props => props.theme.palette.background};
-
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     margin-top: 125px;
   }
 `

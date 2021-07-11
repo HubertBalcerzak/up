@@ -1,4 +1,12 @@
-import { colorStates } from './_colors'
+import { TColor } from '../../../../assets/theme/colors'
+
+export type colorStates = {
+  unset: TColor
+  hover: TColor
+  active: TColor
+  focus: TColor
+  disabled: TColor
+}
 
 interface colorVariant {
   [key: string]: colorStates
@@ -6,25 +14,25 @@ interface colorVariant {
 
 const colorVariants: colorVariant = {
   primary: {
-    unset: 'primary',
-    hover: 'primary',
-    active: 'primary',
-    focus: 'primary',
-    disabled: 'grey'
+    unset: 'upPrimary',
+    hover: 'upPrimaryHover',
+    active: 'upPrimaryActive',
+    focus: 'upPrimaryActive',
+    disabled: 'upPrimaryActive'
   },
   secondary: {
-    unset: 'secondary',
-    hover: 'secondary',
-    active: 'secondary',
-    focus: 'secondary',
-    disabled: 'transparent'
+    unset: 'upPositive',
+    hover: 'upPositiveHover',
+    active: 'upPositiveHover',
+    focus: 'upPositiveHover',
+    disabled: 'upSuccessBgNight'
   },
   transparent: {
     unset: 'transparent',
     hover: 'transparent',
     active: 'transparent',
     focus: 'transparent',
-    disabled: 'grey'
+    disabled: 'transparent'
   }
 }
 

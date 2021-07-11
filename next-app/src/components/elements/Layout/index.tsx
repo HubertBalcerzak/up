@@ -1,24 +1,25 @@
-import React, { ReactChild } from 'react'
+import React from 'react'
 import Head from 'next/head'
 
 import Providers from './Providers'
 
 import Page from '../../blocks/Page'
-import Footer from './Footer'
 
-interface LayoutProps {
-  children: ReactChild
+export interface LayoutProps {
   title?: string
 }
 
-const Layout = ({ title = 'UP | File Hosting', children, ...props }: LayoutProps) => (
+const Layout: React.FC<LayoutProps> = ({
+  title = 'UP | Share your dreams',
+  children,
+  ...props
+}) => (
   <Providers>
     <Head>
       <title>{title}</title>
     </Head>
     <Page>
       <Page.Content {...props} children={children} />
-      <Footer {...props} />
     </Page>
   </Providers>
 )

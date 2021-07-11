@@ -1,43 +1,21 @@
-import { colorStates } from './_colors'
+import StyledButton from '../StyledButton'
+import ButtonText from '../ButtonText'
 
-import colorVariants from './_colorVariants'
+import PrimaryStyledButton from './primary/PrimaryStyledButton'
+import PrimaryButtonText from './primary/PrimaryButtonText'
 
-import inline from './inline'
-import outline from './outline'
-import transparent from './transparent'
+export type possibleVariants = 'primary'
 
-export interface variantProps {
-  color: colorStates
+type TVariant = {
+  Button: typeof StyledButton
+  Text: typeof ButtonText
 }
 
-export type possibleVariants =
-  'inline' |
-  'outline' |
-  'transparent'
-
-const variants = (props: { colorStates?: colorStates }): { [index in possibleVariants]: { button?: any, text?: any } } => ({
-  inline: inline({
-    color: {
-      ...colorVariants.primary,
-      ...props.colorStates
-    }
-  }),
-  outline: outline({
-    color: {
-      ...colorVariants.secondary,
-      ...props.colorStates
-    }
-  }),
-  transparent: transparent({
-    color: {
-      ...colorVariants.transparent,
-      ...props.colorStates
-    }
-  })
-})
-
-export const includeVariant = (props: { colorStates?: colorStates, variant: string }, element: string) => {
-  return variants(props)[props.variant][element]
+const variants: { [index in possibleVariants]: TVariant } = {
+  primary: {
+    Button: PrimaryStyledButton,
+    Text: PrimaryButtonText
+  }
 }
 
 export default variants

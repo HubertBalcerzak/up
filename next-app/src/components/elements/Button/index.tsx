@@ -1,77 +1,78 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import Link, { LinkProps } from 'next/link'
 
-import { possibleVariants } from './variants'
-import { colorStates } from './variants/_colors'
-
-import ButtonText from './ButtonText'
+import variants, { possibleVariants } from './variants'
 import IconContainer from './IconContainer'
-import StyledButton from './StyledButton'
 import StyledLink from './StyledLink'
 import LoaderContainer from './LoaderContainer'
+import colorVariants, { colorStates } from './variants/_colorVariants'
 
 interface IButtonProps {
-  children?: null,
-  title?: React.ReactNode,
-  icon?: React.ReactNode,
-  iconAlign?: 'left' | 'right',
-  rounded?: boolean,
-  variant?: possibleVariants,
-  colorStates?: colorStates,
-  link?: LinkProps,
-  loader?: React.ReactNode,
-  isLoading?: boolean,
-  linkProps?: object,
-  buttonProps?: object
-  textProps?: object,
+  children?: React.ReactNode
+  icon?: React.ReactNode
+  iconAlign?: 'left' | 'right'
+  variant?: possibleVariants
+  colorStates?: colorStates
+  link?: LinkProps
+  loader?: React.ReactNode
+  isLoading?: boolean
+  linkProps?: Record<string, unknown>
+  buttonProps?: Record<string, unknown>
+  textProps?: Record<string, unknown>
   disabled?: boolean
 }
 
 /**
  * @example
- *   <Button
- *     title='My Awesome title!'
- *     variant='outlined'
- *   />
+ *   <Button variant='outlined'>My awesome text!</Button>
  **/
-const Button = (props: IButtonProps) => {
+const Button = ({ children = null, variant = 'primary', ...props }: IButtonProps) => {
+  const Variant = useMemo(() => {
+    return variants[variant]
+  }, [variant])
+
   const ButtonComponent = () => (
-    <StyledButton {...props} {...props.buttonProps}>
-      <LoaderContainer isLoading={props.isLoading}>
-        {props.loader}
-      </LoaderContainer>
+    <Variant.Button
+      {...props}
+      {...props.buttonProps}
+      colorStates={props.colorStates || colorVariants[variant]}
+    >
+      <LoaderContainer isLoading={props.isLoading}>{props.loader}</LoaderContainer>
       {props.icon && (
-        <IconContainer iconAlign={props.iconAlign} disableMargin={!props.title} {...props}>
+        <IconContainer iconAlign={props.iconAlign} {...props}>
           {props.icon}
         </IconContainer>
       )}
-      {props.title && (
-        <ButtonText {...props} {...props.textProps}>
-          {props.title}
-        </ButtonText>
+      {children && (
+        <Variant.Text
+          {...props}
+          {...props.textProps}
+          colorStates={props.colorStates || colorVariants[variant]}
+        >
+          {children}
+        </Variant.Text>
       )}
-    </StyledButton>
+    </Variant.Button>
   )
 
   if (props.link) {
     return (
       <Link {...props.link} passHref>
         <StyledLink {...props.linkProps}>
-          <ButtonComponent/>
+          <ButtonComponent />
         </StyledLink>
       </Link>
     )
   }
 
-  return <ButtonComponent/>
+  return <ButtonComponent />
 }
 
 const defaultProps: IButtonProps = {
-  title: null,
+  children: 'Click me!',
   icon: null,
   iconAlign: 'right',
-  variant: 'inline',
-  rounded: false,
+  variant: 'primary',
   link: undefined,
   loader: null,
   isLoading: false,

@@ -1,11 +1,5 @@
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
-import Container from './Container'
-
-const HomePage = styled('div')`
-
-`
-
-HomePage.Container = Container
+const HomePage = styled('div')``
 
 export default HomePage
