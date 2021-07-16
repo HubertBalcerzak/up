@@ -4,12 +4,13 @@ import {
   IUploadBoxContentContext,
   UploadBoxContentContext
 } from '../../providers/UploadBoxContentProvider'
+import { IHomePageProps } from '../../pages'
 
 export interface IHomePageStateProps {
   uploadBoxContent: IUploadBoxContentContext
 }
 
-const useHomePage = ({}: IHomePageStateProps): IHomePageStateProps => {
+const useHomePage = ({}: IHomePageProps): IHomePageStateProps => {
   const uploadBoxContent = useContext(UploadBoxContentContext)
   return { uploadBoxContent }
 }

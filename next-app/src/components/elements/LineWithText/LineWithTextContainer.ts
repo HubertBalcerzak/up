@@ -6,6 +6,7 @@ const LineWithTextContainer = styled('div')`
   grid-column-gap: 10px;
   margin: 25px 0;
   align-items: center;
+  width: 100%;
 `
 
 export default LineWithTextContainer

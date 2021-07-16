@@ -8,6 +8,10 @@ const Content = styled('div')`
   background: ${(props) => props.theme.colors.mako};
   border-radius: 8px;
   padding: 25px;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.md}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export default Content

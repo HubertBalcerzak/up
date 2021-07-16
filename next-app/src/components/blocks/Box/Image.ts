@@ -10,6 +10,10 @@ const Image = styled('img')`
   transition: opacity 500ms ease 0s;
   user-select: none;
   -webkit-user-drag: none;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.md}) {
+    display: none;
+  }
 `
 
 export default Image

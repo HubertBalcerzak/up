@@ -17,6 +17,7 @@ import { TypographyP } from '../../components/elements/Typography'
 import footerLinks from './footerLinks'
 import ExpandableBalloon from '../../components/elements/ExpandableBalloon'
 import UploadBoxes from '../UploadBoxes'
+import DesktopContainer from '../../components/elements/DesktopContainer'
 
 interface IHomePageViewProps extends IHomePageProps, IHomePageStateProps {}
 
@@ -29,29 +30,31 @@ const HomePageView = (props: IHomePageViewProps) => (
           {React.createElement(UploadBoxes[props.uploadBoxContent.currentBox]?.Component)}
         </Box.Content>
         <Box.TransparentBar>
-          <AlignedDiv>
-            <div className={styleHelpers.hoverExpandableElement({ width: 255, height: 130 })}>
-              <Circle
-                size='25px'
-                className={cx(
-                  styleHelpers.centerBothSides,
-                  css`
-                    color: ${theme.colors.upBase02};
-                    font-weight: 600;
-                    font-family: 'Bree Serif', serif;
-                    cursor: pointer;
-                    user-select: none;
-                  `
-                )}
-              >
-                i
-              </Circle>
-              <ExpandableBalloon>
-                Did you know that you can paste <b>images</b> and <b>text</b> from your clipboard
-                directly into our website?
-              </ExpandableBalloon>
-            </div>
-          </AlignedDiv>
+          <DesktopContainer breakpoint={theme.breakpoints.sm}>
+            <AlignedDiv>
+              <div className={styleHelpers.hoverExpandableElement({ width: 255, height: 130 })}>
+                <Circle
+                  size='25px'
+                  className={cx(
+                    styleHelpers.centerBothSides,
+                    css`
+                      color: ${theme.colors.upBase02};
+                      font-weight: 600;
+                      font-family: 'Bree Serif', serif;
+                      cursor: pointer;
+                      user-select: none;
+                    `
+                  )}
+                >
+                  i
+                </Circle>
+                <ExpandableBalloon>
+                  Did you know that you can paste <b>images</b> and <b>text</b> from your clipboard
+                  directly into our website?
+                </ExpandableBalloon>
+              </div>
+            </AlignedDiv>
+          </DesktopContainer>
           <AlignedDiv align='flex-end' className={styleHelpers.childrenWithDots(theme)}>
             {footerLinks.map((footerLink) => (
               <Link key={footerLink.href} href={footerLink.href} passHref>
